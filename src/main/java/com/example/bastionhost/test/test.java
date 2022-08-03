@@ -7,13 +7,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class test {
-    @Test
-    public void Subdomain(){
+    public List<String> Subdomain(){
         File file = new File("src/main/resources/Subdomain/Subdomain.txt");
+        ArrayList<String> SubDomain = new ArrayList<>();
+
         BufferedReader reader = null;
         try {
             System.out.println("以行为单位读取文件内容，一次读一整行：");
@@ -23,7 +25,7 @@ public class test {
             // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
                 // 显示行号
-                System.out.println("line " + line + ": " + tempString);
+                SubDomain.add(tempString);
                 line++;
             }
             reader.close();
@@ -37,15 +39,21 @@ public class test {
                 }
             }
         }
-
-
-
-
+        return SubDomain;
     }
 
     @Test
-    public void System(){
+    public void User_Dir(){
         String property = System.getProperty("user.dir");
         System.out.println(property);
+    }
+
+    @Test
+    public void Subdomain_01(){
+        List<String> subdomains = Subdomain();
+        for (Object Subdomain :
+                subdomains) {
+            System.out.println(Subdomain);
+        }
     }
 }
