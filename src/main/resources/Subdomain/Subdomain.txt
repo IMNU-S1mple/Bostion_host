@@ -1,0 +1,10 @@
+www
+mail
+m
+imap
+bbs
+test
+wap
+ns1
+dev
+app
